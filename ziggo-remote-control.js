@@ -432,14 +432,14 @@ class ZiggoRemoteControl extends LitElement {
     }
 
     _button(button) {
-        this.hass.callService("webostv", "button", {
+        this.hass.callService("ziggonext", "button", {
             entity_id: this.config.entity,
             button: button
         });
     }
 
     _command(command) {
-        this.hass.callService("webostv", "command", {
+        this.hass.callService("ziggonext", "command", {
             entity_id: this.config.entity,
             command: command
         });
@@ -459,7 +459,7 @@ class ZiggoRemoteControl extends LitElement {
     }
 
     _select_sound_output(sound_output) {
-        this.hass.callService("webostv", "select_sound_output", {
+        this.hass.callService("ziggonext", "select_sound_output", {
             entity_id: this.config.entity,
             sound_output: sound_output
         });
