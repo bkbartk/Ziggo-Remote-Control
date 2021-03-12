@@ -262,7 +262,7 @@ class ZiggoRemoteControl extends LitElement {
             <div class="page" style="--remote-button-color: ${buttonColor}; --remote-text-color: ${textColor}; --remote-color: ${backgroundColor}; --remotewidth: ${remoteWidth};  --main-border-color: ${borderColor}; --main-border-width: ${borderWidth}">
                   <div class="grid-container-power"  style="--remotewidth: ${remoteWidth}">
                       <button class="btn-flat flat-high ripple" @click=${() => this._channelList()}><ha-icon icon="mdi:format-list-numbered"/></button>
-                      <button class="btn ripple" @click=${() => this._media_player_service("toggle")}><ha-icon icon="mdi:power" style="color: red;"/></button>
+                      <button class="btn ripple" @click=${() => this._media_player_service("media_player","toggle")}><ha-icon icon="mdi:power" style="color: red;"/></button>
                       <button class="btn-flat flat-high ripple" @click=${() => this._show_keypad = !this._show_keypad}>123</button>
                   </div> 
                  ${this._show_inputs ? html`
@@ -386,25 +386,25 @@ class ZiggoRemoteControl extends LitElement {
 <!-- ################################# COLORED BUTTONS END ################################# -->
 
                   <div class="grid-container-volume-channel-control" >
-                      <button class="btn ripple"  style="border-radius: 50% 50% 0px 0px; margin: 0px auto 0px auto; height: 100%;" @click=${() => this._media_player_service("volume_up")}><ha-icon icon="mdi:plus"/></button>
+                      <button class="btn ripple"  style="border-radius: 50% 50% 0px 0px; margin: 0px auto 0px auto; height: 100%;" @click=${() => this._media_player_service("webostv","volume_up")}><ha-icon icon="mdi:plus"/></button>
                       <button class="btn-flat flat-high ripple" style="margin-top: 0px; height: 50%;" @click=${() => this._button("HOME")}><ha-icon icon="mdi:home"></button>
                       <button class="btn ripple" style="border-radius: 50% 50% 0px 0px; margin: 0px auto 0px auto; height: 100%;" @click=${() => this._button("CHANNELUP")}><ha-icon icon="mdi:chevron-up"/></button>
                       <button class="btn" style="border-radius: 0px; cursor: default; margin: 0px auto 0px auto; height: 100%;"><ha-icon icon="${stateObj.attributes.is_volume_muted === true ? 'mdi:volume-off' : 'mdi:volume-high'}"/></button>
-                      <button class="btn ripple" Style="color:${stateObj.attributes.is_volume_muted === true ? 'red' : ''}; height: 100%;"" @click=${() => this._button("MUTE")}><span class="${stateObj.attributes.is_volume_muted === true ? 'blink' : ''}"><ha-icon icon="mdi:volume-mute"></span></button>
+                      <button class="btn ripple" Style="color:${stateObj.attributes.is_volume_muted === true ? 'red' : ''}; height: 100%;"" @click=${() => this._button("webostv","MUTE")}><span class="${stateObj.attributes.is_volume_muted === true ? 'blink' : ''}"><ha-icon icon="mdi:volume-mute"></span></button>
                       <button class="btn" style="border-radius: 0px; cursor: default; margin: 0px auto 0px auto; height: 100%;"><ha-icon icon="mdi:parking"/></button>
-                      <button class="btn ripple" style="border-radius: 0px 0px 50% 50%;  margin: 0px auto 0px auto; height: 100%;" @click=${() => this._media_player_service("volume_down")}><ha-icon icon="mdi:minus"/></button>
+                      <button class="btn ripple" style="border-radius: 0px 0px 50% 50%;  margin: 0px auto 0px auto; height: 100%;" @click=${() => this._media_player_service("webostv","volume_down")}><ha-icon icon="mdi:minus"/></button>
                       <button class="btn-flat flat-high ripple" style="margin-bottom: 0px; height: 50%;" @click=${() => this._button("INFO")}><ha-icon icon="mdi:information-variant"/></button>
                       <button class="btn ripple" style="border-radius: 0px 0px 50% 50%;  margin: 0px auto 0px auto; height: 100%;"  @click=${() => this._button("CHANNELDOWN")}><ha-icon icon="mdi:chevron-down"/></button>
                   </div>
 
 <!-- ################################# MEDIA CONTROL ################################# -->
                  <div class="grid-container-media-control" >
-                      <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("media_play")}><ha-icon icon="mdi:play"/></button>
-                      <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("media_pause")}><ha-icon icon="mdi:pause"/></button>
-                      <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("media_stop")}><ha-icon icon="mdi:stop"/></button>
-                      <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("media_rewind")}><ha-icon icon="mdi:skip-backward"/></button>
-                      <button class="btn-flat flat-low ripple" style="color: red;" @click=${() => this._media_player_service("media_Record")}><ha-icon icon="mdi:record"/></button>
-                      <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("media_fast_forward")}><ha-icon icon="mdi:skip-forward"/></button>
+                      <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("media_player","media_play")}><ha-icon icon="mdi:play"/></button>
+                      <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("media_player","media_pause")}><ha-icon icon="mdi:pause"/></button>
+                      <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("media_player","media_stop")}><ha-icon icon="mdi:stop"/></button>
+                      <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("ziggonext","media_rewind")}><ha-icon icon="mdi:skip-backward"/></button>
+                      <button class="btn-flat flat-low ripple" style="color: red;" @click=${() => this._media_player_service("ziggonext","media_Record")}><ha-icon icon="mdi:record"/></button>
+                      <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("ziggonext","media_fast_forward")}><ha-icon icon="mdi:skip-forward"/></button>
                   </div> 
 <!-- ################################# MEDIA CONTROL END ################################# -->
                   </div>
@@ -445,8 +445,8 @@ class ZiggoRemoteControl extends LitElement {
         });
     }
 
-    _media_player_service(service) {
-        this.hass.callService("media_player", service, {
+    _media_player_service(type,service) {
+        this.hass.callService(type, service, {
             entity_id: this.config.entity,
         });
     }
