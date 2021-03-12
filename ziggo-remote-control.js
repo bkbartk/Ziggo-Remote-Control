@@ -2,7 +2,7 @@ var LitElement = LitElement || Object.getPrototypeOf(customElements.get("ha-pane
 var html = LitElement.prototype.html;
 var css = LitElement.prototype.css;
 
-class ZiggoRemoteControl extends LitElement {
+class LgRemoteControl extends LitElement {
 
     static get disneyIcon() {
         return html`<svg version="1.1" id="Livello_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -945,4 +945,4 @@ class ZiggoRemoteControl extends LitElement {
 
 }
 
-customElements.define('ziggo-remote-control', ZiggoRemoteControl);
+customElements.define('ziggo-remote-control', LgRemoteControl);
