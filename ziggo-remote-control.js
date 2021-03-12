@@ -2,7 +2,7 @@ var LitElement = LitElement || Object.getPrototypeOf(customElements.get("ha-pane
 var html = LitElement.prototype.html;
 var css = LitElement.prototype.css;
 
-class LgRemoteControl extends LitElement {
+class ZiggoRemoteControl extends LitElement {
 
     static get disneyIcon() {
         return html`<svg version="1.1" id="Livello_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -304,11 +304,11 @@ class LgRemoteControl extends LitElement {
                   ` : html`
                       <button class="sound_icon_text  ripple" @click=${() => this._show_text = true}><ha-icon style="height: calc(var(--remotewidth) / 6); width: calc(var(--remotewidth) / 6);" icon="mdi:speaker"></button>
                         <button class="${stateObj.attributes.sound_output === "tv_speaker" ? 'btn_sound_on tv bnt_sound_icon_width' : 'btn_sound_off tv bnt_sound_icon_width ripple overlay'}" style="margin-left: calc(var(--remotewidth) / 7.5);" @click=${() => this._select_sound_output("tv_speaker")}><ha-icon class="icon_source" icon="mdi:television-classic"></button>
-                        <button class="${stateObj.attributes.sound_output === "tv_external_speaker" ? 'btn_sound_on tv-opt bnt_sound_icon_width' : 'btn_sound_off tv-opt bnt_sound_icon_width ripple overlay'}" style="margin-right: calc(var(--remotewidth) / 7.5);" @click=${() => this._select_sound_output("tv_external_speaker")}>${LgRemoteControl.tvoptic}</button>
-                        <button class="${stateObj.attributes.sound_output === "tv_speaker_headphone" ? 'btn_sound_on tv-phone bnt_sound_icon_width' : 'btn_sound_off tv-phone bnt_sound_icon_width ripple overlay'}" style="margin-left: calc(var(--remotewidth) / 7.5);" @click=${() => this._select_sound_output("tv_speaker_headphone")}>${LgRemoteControl.tvheadphone}</button>
-                        <button class="${stateObj.attributes.sound_output === "external_optical" ? 'btn_sound_on opt bnt_sound_icon_width' : 'btn_sound_off opt bnt_sound_icon_width ripple overlay'}" style="margin-right: calc(var(--remotewidth) / 7.5);" @click=${() => this._select_sound_output("external_optical")}>${LgRemoteControl.optic}</button>
-                        <button class="${stateObj.attributes.sound_output === "external_arc" ? 'btn_sound_on hdmi bnt_sound_icon_width' : 'btn_sound_off hdmi bnt_sound_icon_width ripple overlay'}"style="margin-left: calc(var(--remotewidth) / 7.5);" @click=${() => this._select_sound_output("external_arc")}>${LgRemoteControl.arc}</button>
-                        <button class="${stateObj.attributes.sound_output === "lineout" ? 'btn_sound_on line bnt_sound_icon_width' : 'btn_sound_off line bnt_sound_icon_width ripple overlay'}" style="margin-right: calc(var(--remotewidth) / 7.5);" @click=${() => this._select_sound_output("lineout")}>${LgRemoteControl.lineout}</button>
+                        <button class="${stateObj.attributes.sound_output === "tv_external_speaker" ? 'btn_sound_on tv-opt bnt_sound_icon_width' : 'btn_sound_off tv-opt bnt_sound_icon_width ripple overlay'}" style="margin-right: calc(var(--remotewidth) / 7.5);" @click=${() => this._select_sound_output("tv_external_speaker")}>${ZiggoRemoteControl.tvoptic}</button>
+                        <button class="${stateObj.attributes.sound_output === "tv_speaker_headphone" ? 'btn_sound_on tv-phone bnt_sound_icon_width' : 'btn_sound_off tv-phone bnt_sound_icon_width ripple overlay'}" style="margin-left: calc(var(--remotewidth) / 7.5);" @click=${() => this._select_sound_output("tv_speaker_headphone")}>${ZiggoRemoteControl.tvheadphone}</button>
+                        <button class="${stateObj.attributes.sound_output === "external_optical" ? 'btn_sound_on opt bnt_sound_icon_width' : 'btn_sound_off opt bnt_sound_icon_width ripple overlay'}" style="margin-right: calc(var(--remotewidth) / 7.5);" @click=${() => this._select_sound_output("external_optical")}>${ZiggoRemoteControl.optic}</button>
+                        <button class="${stateObj.attributes.sound_output === "external_arc" ? 'btn_sound_on hdmi bnt_sound_icon_width' : 'btn_sound_off hdmi bnt_sound_icon_width ripple overlay'}"style="margin-left: calc(var(--remotewidth) / 7.5);" @click=${() => this._select_sound_output("external_arc")}>${ZiggoRemoteControl.arc}</button>
+                        <button class="${stateObj.attributes.sound_output === "lineout" ? 'btn_sound_on line bnt_sound_icon_width' : 'btn_sound_off line bnt_sound_icon_width ripple overlay'}" style="margin-right: calc(var(--remotewidth) / 7.5);" @click=${() => this._select_sound_output("lineout")}>${ZiggoRemoteControl.lineout}</button>
                         <button class="${stateObj.attributes.sound_output === "headphone" ? 'btn_sound_on phone bnt_sound_icon_width' : 'btn_sound_off phone bnt_sound_icon_width ripple overlay'}" style="margin-left: calc(var(--remotewidth) / 7.5);" @click=${() => this._select_sound_output("headphone")}><ha-icon class="icon_source" icon="mdi:headphones"></button>
                         <button class="${stateObj.attributes.sound_output === "bt_soundbar" ? 'btn_sound_on bluetooth bnt_sound_icon_width' : 'btn_sound_off bluetooth bnt_sound_icon_width ripple overlay'}" style="margin-right: calc(var(--remotewidth) / 7.5);" @click=${() => this._select_sound_output("bt_soundbar")}><ha-icon class="icon_source" icon="mdi:bluetooth"></button>
                     </div>
@@ -359,7 +359,7 @@ class LgRemoteControl extends LitElement {
                       ${this.config.sources.map(source => {
                       return html`
                         <button class="btn_source ripple" @click=${() => this._select_source(source.name)}>
-                          ${LgRemoteControl.getIcon(source.icon)}
+                          ${ZiggoRemoteControl.getIcon(source.icon)}
                         </button>
                       `;
                       })}
@@ -368,8 +368,8 @@ class LgRemoteControl extends LitElement {
                   <div class="grid-container-source">
                       <button class="btn_source ripple" @click=${() => this._select_source("Netflix")}><ha-icon style="heigth: 70%; width: 70%;" icon="mdi:netflix"/></button>
                       <button class="btn_source ripple" @click=${() => this._select_source("Amazon Prime Video")}><ha-icon style="heigth: 70%; width: 70%;" icon="mdi:amazon"/></button>
-                      <button class="btn_source ripple" @click=${() => this._select_source("Disney+")}>${LgRemoteControl.disneyIcon}</button>
-                      <button class="btn_source ripple" @click=${() => this._select_source("DAZN")}>${LgRemoteControl.daznIcon}</button>
+                      <button class="btn_source ripple" @click=${() => this._select_source("Disney+")}>${ZiggoRemoteControl.disneyIcon}</button>
+                      <button class="btn_source ripple" @click=${() => this._select_source("DAZN")}>${ZiggoRemoteControl.daznIcon}</button>
                   </div>`}
 <!-- ################################# SOURCE BUTTONS END ################################# -->
 
@@ -478,8 +478,8 @@ class LgRemoteControl extends LitElement {
     }
 
     static getIcon(iconName) {
-        return Object.keys(LgRemoteControl.iconMapping).includes(iconName)
-            ? LgRemoteControl.iconMapping[iconName]
+        return Object.keys(ZiggoRemoteControl.iconMapping).includes(iconName)
+            ? ZiggoRemoteControl.iconMapping[iconName]
             : html`<ha-icon style="height: 70%; width: 70%;" icon="${iconName}"/>`;
     }
 
@@ -945,4 +945,4 @@ class LgRemoteControl extends LitElement {
 
 }
 
-customElements.define('ziggo-remote-control', LgRemoteControl);
+customElements.define('ziggo-remote-control', ZiggoRemoteControl);
