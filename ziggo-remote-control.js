@@ -399,12 +399,12 @@ class ZiggoRemoteControl extends LitElement {
 
 <!-- ################################# MEDIA CONTROL ################################# -->
                  <div class="grid-container-media-control" >
-                      <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("play")}><ha-icon icon="mdi:play"/></button>
-                      <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("pause")}><ha-icon icon="mdi:pause"/></button>
-                      <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("stop")}><ha-icon icon="mdi:stop"/></button>
-                      <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("rewind")}><ha-icon icon="mdi:skip-backward"/></button>
-                      <button class="btn-flat flat-low ripple" style="color: red;" @click=${() => this._media_player_service("Record")}><ha-icon icon="mdi:record"/></button>
-                      <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("fast_forward")}><ha-icon icon="mdi:skip-forward"/></button>
+                      <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("media_play")}><ha-icon icon="mdi:play"/></button>
+                      <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("media_pause")}><ha-icon icon="mdi:pause"/></button>
+                      <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("media_stop")}><ha-icon icon="mdi:stop"/></button>
+                      <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("media_rewind")}><ha-icon icon="mdi:skip-backward"/></button>
+                      <button class="btn-flat flat-low ripple" style="color: red;" @click=${() => this._media_player_service("media_Record")}><ha-icon icon="mdi:record"/></button>
+                      <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("media_fast_forward")}><ha-icon icon="mdi:skip-forward"/></button>
                   </div> 
 <!-- ################################# MEDIA CONTROL END ################################# -->
                   </div>
