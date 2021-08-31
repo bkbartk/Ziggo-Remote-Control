@@ -274,7 +274,7 @@ class ZiggoRemoteControl extends LitElement {
                   <div class="grid-item-input">
                     ${stateObj.attributes.source_list.map(source => html`
                     <button class="${stateObj.attributes.source === source ? 'btn-input-on' : 'btn-input  ripple overlay'}" @click=${() => {
-                        this._select_source(source);
+                        this._select_source(source.name);
                         this._show_inputs = false;
                     }}}>${source}</button>
                     `)}
@@ -352,18 +352,18 @@ class ZiggoRemoteControl extends LitElement {
                   <div class="grid-container-volume-channel-control" >
                       <button class="btn ripple"  style="border-radius: 50% 50% 0px 0px; margin: 0px auto 0px auto; height: 100%;" @click=${() => this._media_player_service("media_player","volume_up")}><ha-icon icon="mdi:plus"/></button>
                       <button class="btn-flat flat-high ripple" style="margin-top: 0px; height: 50%;" @click=${() => this._button("HOME")}><ha-icon icon="mdi:home"></button>
-                      <button class="btn ripple" style="border-radius: 50% 50% 0px 0px; margin: 0px auto 0px auto; height: 100%;" @click=${() => this._remote_key_press("ziggonext","ChannelUp")}><ha-icon icon="mdi:chevron-up"/></button>
+                      <button class="btn ripple" style="border-radius: 50% 50% 0px 0px; margin: 0px auto 0px auto; height: 100%;" @click=${() => this._remote_key_press("arris_dcx960","channel_up")}><ha-icon icon="mdi:chevron-up"/></button>
                       <button class="btn" style="border-radius: 0px; cursor: default; margin: 0px auto 0px auto; height: 100%;"><ha-icon icon="${stateObj.attributes.is_volume_muted === true ? 'mdi:volume-off' : 'mdi:volume-high'}"/></button>
                       <button class="btn ripple" Style="color:${stateObj.attributes.is_volume_muted === true ? 'red' : ''}; height: 100%;"" @click=${() => this._button("media_player","MUTE")}><span class="${stateObj.attributes.is_volume_muted === true ? 'blink' : ''}"><ha-icon icon="mdi:volume-mute"></span></button>
                       <button class="btn" style="border-radius: 0px; cursor: default; margin: 0px auto 0px auto; height: 100%;"><ha-icon icon="mdi:parking"/></button>
                       <button class="btn ripple" style="border-radius: 0px 0px 50% 50%;  margin: 0px auto 0px auto; height: 100%;" @click=${() => this._media_player_service("media_player","volume_down")}><ha-icon icon="mdi:minus"/></button>
                       <button class="btn-flat flat-low ripple" style="color: red;" @click=${() => this._media_player_service("media_player","MediaRecord")}><ha-icon icon="mdi:record"/></button>
-                      <button class="btn ripple" style="border-radius: 0px 0px 50% 50%;  margin: 0px auto 0px auto; height: 100%;"  @click=${() => this._remote_key_press("arris_dcx960","ChannelDown")}><ha-icon icon="mdi:chevron-down"/></button>
+                      <button class="btn ripple" style="border-radius: 0px 0px 50% 50%;  margin: 0px auto 0px auto; height: 100%;"  @click=${() => this._remote_key_press("arris_dcx960","channel_down")}><ha-icon icon="mdi:chevron-down"/></button>
                   </div>
 
 <!-- ################################# MEDIA CONTROL ################################# -->
                  <div class="grid-container-media-control" >
-                      <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("arris_dcx960.rewind")}><ha-icon icon="mdi:skip-backward"/></button>
+                      <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("arris_dcx960","rewind")}><ha-icon icon="mdi:skip-backward"/></button>
                       <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("media_player","media_play_pause")}><ha-icon icon="mdi:play-pause"/></button>
                       <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("arris_dcx960","fast_forward")}><ha-icon icon="mdi:skip-forward"/></button>
                   </div> 
@@ -382,22 +382,10 @@ class ZiggoRemoteControl extends LitElement {
         });
     }
 
-    _command(command) {
-        this.hass.callService("ziggonext", "command", {
-            entity_id: this.config.entity,
-            command: command
-        });
-    }
 
     _remote_key_press(type,key) {
         this.hass.callService(type, "remote_key_press", {
-            entity_id: key,
-        });
-    }
-
-    _media_player_service(type) {
-        this.hass.callService(type, {
-            entity_id: this.config.entity,
+            remote_key: key,
         });
     }
 
