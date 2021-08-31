@@ -284,7 +284,7 @@ class ZiggoRemoteControl extends LitElement {
                     ${this._show_keypad ? html`
 <!-- ################################ keypad ################################## -->
                     <div class="grid-container-keypad">
-                        <button class="btn-keypad ripple" @click=${() => this._button("1")}>1</button>
+                        <button class="btn-keypad ripple" @click=${() => this._remote_key_press("arris_dcx960","1")}>1</button>
                         <button class="btn-keypad ripple" @click=${() => this._button("2")}>2</button>
                         <button class="btn-keypad ripple" @click=${() => this._button("3")}>3</button>
                         <button class="btn-keypad ripple" @click=${() => this._button("4")}>4</button>
@@ -304,15 +304,15 @@ class ZiggoRemoteControl extends LitElement {
                   <div class="shape">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 79"><path d="m 30 15 a 10 10 0 0 1 20 0 a 15 15 0 0 0 15 15 a 10 10 0 0 1 0 20 a 15 15 0 0 0 -15 15 a 10 10 0 0 1 -20 0 a 15 15 0 0 0 -15 -15 a 10 10 0 0 1 0 -20 a 15 15 0 0 0 15 -15" fill="var(--remote-button-color)" stroke="#000000" stroke-width="0" /></svg>
                     </div> 
-                      <button class="btn ripple item_sound" @click=${() => this._media_player_service("ziggonext","Guide")}><ha-icon icon="mdi:television-guide"/></button>
-                      <button class="btn ripple item_up" style="background-color: transparent;" @click=${() => this._button("UP")}><ha-icon icon="mdi:chevron-up"/></button>
+                      <button class="btn ripple item_sound" @click=${() => this._remote_key_press("arris_dcx960","Gruide")}><ha-icon icon="mdi:television-guide"/></button>
+                      <button class="btn ripple item_up" style="background-color: transparent;" @click=${() => this._remote_key_press("arris_dcx960","ArrowUp")}><ha-icon icon="mdi:chevron-up"/></button>
                       <button class="btn ripple item_input" @click=${() => this._show_inputs = true}><ha-icon icon="mdi:import"/></button>
-                      <button class="btn ripple item_2_sx" style="background-color: transparent;" @click=${() => this._button("LEFT")}><ha-icon icon="mdi:chevron-left"/></button>
-                      <button class="btn bnt_ok ripple item_2_c" style="border: solid 2px ${backgroundColor}"  @click=${() => this._button("ENTER")}>OK</button>
-                      <button class="btn ripple item_right" style="background-color: transparent;" @click=${() => this._button("RIGHT")}><ha-icon icon="mdi:chevron-right"/></button>
-                      <button class="btn ripple item_back" @click=${() => this._button("BACK")}><ha-icon icon="mdi:undo-variant"/></button>
-                      <button class="btn ripple item_down" style="background-color: transparent;" @click=${() => this._button("DOWN")}><ha-icon icon="mdi:chevron-down"/></button>
-                      <button class="btn ripple item_exit" @click=${() => this._button("EXIT")}>...</button>
+                      <button class="btn ripple item_2_sx" style="background-color: transparent;" @click=${() => this._remote_key_press("arris_dcx960","ArrowLeft")}><ha-icon icon="mdi:chevron-left"/></button>
+                      <button class="btn bnt_ok ripple item_2_c" style="border: solid 2px ${backgroundColor}"  @click=${() => this._remote_key_press("arris_dcx960","Enter")}>OK</button>
+                      <button class="btn ripple item_right" style="background-color: transparent;" @click=${() => this._remote_key_press("arris_dcx960","ArrowRight")}><ha-icon icon="mdi:chevron-right"/></button>
+                      <button class="btn ripple item_back" @click=${() => this._remote_key_press("arris_dcx960","Escape")}><ha-icon icon="mdi:undo-variant"/></button>
+                      <button class="btn ripple item_down" style="background-color: transparent;" @click=${() => this._remote_key_press("arris_dcx960","ArrowDown")}><ha-icon icon="mdi:chevron-down"/></button>
+                      <button class="btn ripple item_exit" @click=${() => this._remote_key_press("arris_dcx960","ContextMenu")}>...</button>
                     </div>
 <!-- ################################# DIRECTION PAD END ################################# -->
                 
@@ -358,7 +358,7 @@ class ZiggoRemoteControl extends LitElement {
                       <button class="btn" style="border-radius: 0px; cursor: default; margin: 0px auto 0px auto; height: 100%;"><ha-icon icon="mdi:parking"/></button>
                       <button class="btn ripple" style="border-radius: 0px 0px 50% 50%;  margin: 0px auto 0px auto; height: 100%;" @click=${() => this._media_player_service("media_player","volume_down")}><ha-icon icon="mdi:minus"/></button>
                       <button class="btn-flat flat-low ripple" style="color: red;" @click=${() => this._media_player_service("arris_dcx960","record")}><ha-icon icon="mdi:record"/></button>
-                      <button class="btn ripple" style="border-radius: 0px 0px 50% 50%;  margin: 0px auto 0px auto; height: 100%;"  @click=${() => this._remote_key_press("arris_dcx960","channel_down")}><ha-icon icon="mdi:chevron-down"/></button>
+                      <button class="btn ripple" style="border-radius: 0px 0px 50% 50%;  margin: 0px auto 0px auto; height: 100%;"  @click=${() => this._remote_key_press("arris_dcx960","ChannelDown")}><ha-icon icon="mdi:chevron-down"/></button>
                   </div>
 
 <!-- ################################# MEDIA CONTROL ################################# -->
