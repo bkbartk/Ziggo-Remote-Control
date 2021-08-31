@@ -276,7 +276,7 @@ class ZiggoRemoteControl extends LitElement {
                     <button class="${stateObj.attributes.source === source ? 'btn-input-on' : 'btn-input  ripple overlay'}" @click=${() => {
                         this._select_source(source);
                         this._show_inputs = false;
-                    }}}>${source}</button>
+                    }}>${source}</button>
                     `)}
                   </div>
 <!-- ################################# SOURCES END ################################# -->
@@ -336,18 +336,6 @@ class ZiggoRemoteControl extends LitElement {
                       <button class="btn_source ripple" @click=${() => this._select_source("DAZN")}>${ZiggoRemoteControl.daznIcon}</button>
                   </div>`}
 <!-- ################################# SOURCE BUTTONS END ################################# -->
-
-<!-- ################################# COLORED BUTTONS ################################# -->
-                ${colorButtons ? html`
-                  <div class="grid-container-color_btn">
-                      <button class="btn-color ripple" style="background-color: red; height: calc(var(--remotewidth) / 12);" @click=${e => this._button("RED")}></button>
-                      <button class="btn-color ripple" style="background-color: green; height: calc(var(--remotewidth) / 12);" @click=${e => this._button("GREEN")}></button>
-                      <button class="btn-color ripple" style="background-color: yellow; height: calc(var(--remotewidth) / 12);" @click=${e => this._button("YELLOW")}></button>
-                      <button class="btn-color ripple" style="background-color: blue; height: calc(var(--remotewidth) / 12);" @click=${e => this._button("BLUE")}></button>
-                  </div>
-                  ` : html`
-                  `}
-<!-- ################################# COLORED BUTTONS END ################################# -->
 
                   <div class="grid-container-volume-channel-control" >
                       <button class="btn ripple"  style="border-radius: 50% 50% 0px 0px; margin: 0px auto 0px auto; height: 100%;" @click=${() => this._media_player_service("media_player","volume_up")}><ha-icon icon="mdi:plus"/></button>
