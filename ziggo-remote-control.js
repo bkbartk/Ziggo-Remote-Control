@@ -274,7 +274,7 @@ class ZiggoRemoteControl extends LitElement {
                   <div class="grid-item-input">
                     ${stateObj.attributes.source_list.map(source => html`
                     <button class="${stateObj.attributes.source === source ? 'btn-input-on' : 'btn-input  ripple overlay'}" @click=${() => {
-                        this._select_source(source.name);
+                        this._select_source(source);
                         this._show_inputs = false;
                     }}}>${source}</button>
                     `)}
@@ -385,13 +385,14 @@ class ZiggoRemoteControl extends LitElement {
 
     _remote_key_press(type,key) {
         this.hass.callService(type, "remote_key_press", {
-            remote_key: key,
+            entity_id: this.config.entity,
+            remote_key: key
         });
     }
 
     _media_player_service(type,service) {
         this.hass.callService(type, service, {
-            entity_id: this.config.entity,
+            entity_id: this.config.entity
         });
     }
 
