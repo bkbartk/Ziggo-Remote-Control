@@ -304,7 +304,7 @@ class ZiggoRemoteControl extends LitElement {
                   <div class="shape">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 79"><path d="m 30 15 a 10 10 0 0 1 20 0 a 15 15 0 0 0 15 15 a 10 10 0 0 1 0 20 a 15 15 0 0 0 -15 15 a 10 10 0 0 1 -20 0 a 15 15 0 0 0 -15 -15 a 10 10 0 0 1 0 -20 a 15 15 0 0 0 15 -15" fill="var(--remote-button-color)" stroke="#000000" stroke-width="0" /></svg>
                     </div> 
-                      <button class="btn ripple item_sound" @click=${() => this._media_player_service("ziggonext","Guide")}><ha-icon icon="mdi:TelevisionGuide"/></button>
+                      <button class="btn ripple item_sound" @click=${() => this._media_player_service("ziggonext","Guide")}><ha-icon icon="mdi:television-guide"/></button>
                       <button class="btn ripple item_up" style="background-color: transparent;" @click=${() => this._button("UP")}><ha-icon icon="mdi:chevron-up"/></button>
                       <button class="btn ripple item_input" @click=${() => this._show_inputs = true}><ha-icon icon="mdi:import"/></button>
                       <button class="btn ripple item_2_sx" style="background-color: transparent;" @click=${() => this._button("LEFT")}><ha-icon icon="mdi:chevron-left"/></button>
@@ -312,7 +312,7 @@ class ZiggoRemoteControl extends LitElement {
                       <button class="btn ripple item_right" style="background-color: transparent;" @click=${() => this._button("RIGHT")}><ha-icon icon="mdi:chevron-right"/></button>
                       <button class="btn ripple item_back" @click=${() => this._button("BACK")}><ha-icon icon="mdi:undo-variant"/></button>
                       <button class="btn ripple item_down" style="background-color: transparent;" @click=${() => this._button("DOWN")}><ha-icon icon="mdi:chevron-down"/></button>
-                      <button class="btn ripple item_exit" @click=${() => this._button("EXIT")}>EXIT</button>
+                      <button class="btn ripple item_exit" @click=${() => this._button("EXIT")}>...</button>
                     </div>
 <!-- ################################# DIRECTION PAD END ################################# -->
                 
