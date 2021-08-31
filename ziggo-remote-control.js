@@ -259,7 +259,7 @@ class ZiggoRemoteControl extends LitElement {
             <div class="card">
             <div class="page" style="--remote-button-color: ${buttonColor}; --remote-text-color: ${textColor}; --remote-color: ${backgroundColor}; --remotewidth: ${remoteWidth};  --main-border-color: ${borderColor}; --main-border-width: ${borderWidth}">
                   <div class="grid-container-power"  style="--remotewidth: ${remoteWidth}">
-                      <button class="btn-flat flat-high ripple" @click=${() => this._channelList()}><ha-icon icon="mdi:format-list-numbered"/></button>
+                      <button class="btn-flat flat-high ripple" @click=${() => this._media_player_service("media_player","MediaTopMenu")}><ha-icon icon="mdi:home"/></button>
                       <button class="btn ripple" @click=${() => this._media_player_service("media_player","toggle")}><ha-icon icon="mdi:power" style="color: red;"/></button>
                       <button class="btn-flat flat-high ripple" @click=${() => this._show_keypad = !this._show_keypad}>123</button>
                   </div> 
@@ -373,23 +373,6 @@ class ZiggoRemoteControl extends LitElement {
                 </div>
               </div>
             `;
-    }
-
-    _channelList() {
-        this.hass.callService("browser_mod", "popup",
-            {
-                "card": {
-                    "type": "custom:card-channel-pad",
-                    "entity": this.config.entity,
-                    "channels": this.config.channels
-                },
-                "title": " ",
-                "large": true,
-                "style": {
-                    "border-radius": "15px"
-                }
-            }
-        )
     }
 
     _button(button) {
