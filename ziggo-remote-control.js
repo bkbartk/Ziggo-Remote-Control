@@ -371,7 +371,7 @@ class ZiggoRemoteControl extends LitElement {
     }
     
     _volume_button(button) {
-        this.hass.callService("webostv", "button", {
+        this.hass.callService(this.config.volumeService, "button", {
             entity_id: this.config.volumeEntity,
             button: button
         });
