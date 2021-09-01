@@ -352,7 +352,7 @@ class ZiggoRemoteControl extends LitElement {
 <!-- ################################# MEDIA CONTROL ################################# -->
                  <div class="grid-container-media-control" >
                       <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("arris_dcx960","rewind")}><ha-icon icon="mdi:skip-backward"/></button>
-                      <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("media_player","media_play_pause")}>${stateObj.state}1</button>
+                      <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("media_player",stateObj.state === 'playing'  ? 'media_pause' : 'media_play')}><ha-icon icon="mdi:${stateObj.state === 'playing'  ? 'pause' : 'play'}"/></button>
                       <button class="btn-flat flat-low ripple"  @click=${() => this._media_player_service("arris_dcx960","fast_forward")}><ha-icon icon="mdi:skip-forward"/></button>
                   </div> 
 <!-- ################################# MEDIA CONTROL END ################################# -->
