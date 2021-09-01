@@ -244,7 +244,7 @@ class ZiggoRemoteControl extends LitElement {
 
     render() {
         const stateObj = this.hass.states[this.config.entity];
-        const colorButtons = this.config.color_buttons === "enable";
+        const volumeStateObj = this.hass.states[this.config.volumeEntity];
 
         const borderWidth = this.config.dimensions && this.config.dimensions.border_width ? this.config.dimensions.border_width : "1px";
         const scale = this.config.dimensions && this.config.dimensions.scale ? this.config.dimensions.scale : 1;
@@ -338,13 +338,13 @@ class ZiggoRemoteControl extends LitElement {
 <!-- ################################# SOURCE BUTTONS END ################################# -->
 
                   <div class="grid-container-volume-channel-control" >
-                      <button class="btn ripple"  style="border-radius: 50% 50% 0px 0px; margin: 0px auto 0px auto; height: 100%;" @click=${() => this._media_player_service("media_player","volume_up")}><ha-icon icon="mdi:plus"/></button>
+                      <button class="btn ripple"  style="border-radius: 50% 50% 0px 0px; margin: 0px auto 0px auto; height: 100%;" @click=${() => this._volume_media_player_service("volume_up")}><ha-icon icon="mdi:plus"/></button>
                       <button class="btn-flat flat-high ripple" style="margin-top: 0px; height: 50%;" @click=${() => this._remote_key_press("arris_dcx960","MediaTopMenu")}><ha-icon icon="mdi:home"></button>
                       <button class="btn ripple" style="border-radius: 50% 50% 0px 0px; margin: 0px auto 0px auto; height: 100%;" @click=${() => this._remote_key_press("arris_dcx960","ChannelUp")}><ha-icon icon="mdi:chevron-up"/></button>
-                      <button class="btn" style="border-radius: 0px; cursor: default; margin: 0px auto 0px auto; height: 100%;"><ha-icon icon="${stateObj.attributes.is_volume_muted === true ? 'mdi:volume-off' : 'mdi:volume-high'}"/></button>
-                      <button class="btn ripple" Style="color:${stateObj.attributes.is_volume_muted === true ? 'red' : ''}; height: 100%;"" @click=${() => this._button("media_player","MUTE")}><span class="${stateObj.attributes.is_volume_muted === true ? 'blink' : ''}"><ha-icon icon="mdi:volume-mute"></span></button>
+                      <button class="btn" style="border-radius: 0px; cursor: default; margin: 0px auto 0px auto; height: 100%;"><ha-icon icon="${volumeStateObj.attributes.is_volume_muted === true ? 'mdi:volume-off' : 'mdi:volume-high'}"/></button>
+                      <button class="btn ripple" Style="color:${volumeStateObj.attributes.is_volume_muted === true ? 'red' : ''}; height: 100%;"" @click=${() => this._volume_button("MUTE")}><span class="${volumeStateObj.attributes.is_volume_muted === true ? 'blink' : ''}"><ha-icon icon="mdi:volume-mute"></span></button>
                       <button class="btn" style="border-radius: 0px; cursor: default; margin: 0px auto 0px auto; height: 100%;"><ha-icon icon="mdi:parking"/></button>
-                      <button class="btn ripple" style="border-radius: 0px 0px 50% 50%;  margin: 0px auto 0px auto; height: 100%;" @click=${() => this._media_player_service("media_player","volume_down")}><ha-icon icon="mdi:minus"/></button>
+                      <button class="btn ripple" style="border-radius: 0px 0px 50% 50%;  margin: 0px auto 0px auto; height: 100%;" @click=${() => this._volume_media_player_service("volume_down")}><ha-icon icon="mdi:minus"/></button>
                       <button class="btn-flat flat-low ripple" style="color: red;" @click=${() => this._media_player_service("arris_dcx960","record")}><ha-icon icon="mdi:record"/></button>
                       <button class="btn ripple" style="border-radius: 0px 0px 50% 50%;  margin: 0px auto 0px auto; height: 100%;"  @click=${() => this._remote_key_press("arris_dcx960","ChannelDown")}><ha-icon icon="mdi:chevron-down"/></button>
                   </div>
@@ -369,6 +369,13 @@ class ZiggoRemoteControl extends LitElement {
             button: button
         });
     }
+    
+    _volume_button(button) {
+        this.hass.callService("webostv", "button", {
+            entity_id: this.config.volumeEntity,
+            button: button
+        });
+    }
 
 
     _remote_key_press(type,key) {
@@ -381,6 +388,12 @@ class ZiggoRemoteControl extends LitElement {
     _media_player_service(type,service) {
         this.hass.callService(type, service, {
             entity_id: this.config.entity
+        });
+    }
+
+    _volume_media_player_service(service) {
+        this.hass.callService("media_player", service, {
+            entity_id: this.config.volumeEntity,
         });
     }
 
