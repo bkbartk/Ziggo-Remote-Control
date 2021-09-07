@@ -17,9 +17,7 @@ HACS:<br>
 3. Scrol down and Add: <br>
     url: https://github.com/bkbartk/Ziggo-Remote-Control<br>
     category: Lovelace<br>
-4. in Ha go to Configuration\Loveace Dashboard\ resources http://homeassistant:8123/config/lovelace/resources
-5. click add resource and add: "\hacsfiles\Ziggo-Remote-Control\ziggo-remote-control.js" Javascript Module
-6. in the dashboard add a Card like the sample below<br>
+4. in the dashboard add a Card like the sample below<br>
 <br>
 MANUAL<br>
 1. copy: "ziggo-remote-control.js" to "~\config\www\community\Ziggo-Remote-Control\ziggo-remote-control.js"<br>
