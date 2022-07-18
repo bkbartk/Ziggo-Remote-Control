@@ -1,3 +1,9 @@
+# Abondon Project,<br>
+<br>
+Since I do not own a Ziggo subscription anymore I will stop updating this custom component.<br>
+I won't be able to debug what I'm building so I don't think it would be wise for me to continue the development.<br>
+If anyone would like to maintain this project, please contact me.<br>
+
 # Ziggo-Remote-Control<br>
 Ziggo-Remote-Control for HA<br>
 <br>
